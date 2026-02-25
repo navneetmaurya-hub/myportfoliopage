@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Featured Projects</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body {
+            font-family: sans-serif; 
+            background-color: #f0f2f5; 
+            color: #1a1a1a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .portfolio-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px; 
+            flex-grow: 1; 
+        }
+
+        /* --- Footer Styles --- */
+        .fotter {
+            background-color: #333;
+            color: #f0f2f5;
+            padding: 30px 20px;
+            text-align: center;
+            width: 100%;
+            margin-top: auto; 
+        }
+
+        .social-icons a {
+            /* यह सुनिश्चित करता है कि आइकॉन्स को सही रंग मिले */
+            color: #f0f2f5; 
+            font-size: 1.5rem;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: #38a169; 
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: #555;
+            margin: 20px auto;
+            width: 80%;
+            max-width: 600px;
+        }
+
+        .copyright p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #ccc;
+        }
+        
+        /* Rest of your existing CSS (Portfolio, Grid, Cards, Buttons) */
+        .main-heading {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .description-text {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            max-width: 800px;
+        }
+
+        .featured-heading {
+            font-size: 1rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-decoration: underline; 
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 25px; 
+        }
+
+        @media (max-width: 1024px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .project-card {
+            background-color: white;
+            padding: 25px;
+            border-radius: 12px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); 
+            border: 1px solid #f0f0f0; 
+        }
+
+        .project-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 20px;
+            line-height: 1.4;
+            min-height: 40px; 
+        }
+
+        .source-code-btn {
+            display: inline-block;
+            padding: 8px 15px;
+            background-color: #38a169; 
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s;
+        }
+        .nav{
+            margin-top: auto;
+        }
+
+        .source-code-btn:hover {
+            background-color: #2f855a; 
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg py-3 navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="myphoto.png" alt="Logo" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                Navneet Maurya
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link" href="index.html">Home</a>
+                    <a class="nav-link" href="portfolio.html">About</a>
+                    <a class="nav-link active" aria-current="page" href="h.html">Portfolio</a>
+                    <a class="nav-link" href="w.html">Experience</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="portfolio-container">
+        <h1 class="main-heading">Portfolio</h1>
+        
+        <p class="description-text">
+            Welcome to my collection of featured development projects. Each project showcases my skills in full-stack development, front-end design, and problem-solving using modern technologies like React, Node.js, and TypeScript.
+        </p>
+
+        <p class="featured-heading">Featured Projects</p>
+
+        <div class="projects-grid">
+            
+            <div class="project-card">
+                <h2 class="project-title">Simon Says Game</h2>
+                <p class="project-description">Simon Says is a game where players must only follow instructions if they are introduced by the phrase "Simon says"</p>
+                <a href="https://simon-says-game-qr08.onrender.com/" class="source-code-btn">Live Demo</a>
+                <a href="https://github.com/navneetmaurya-hub/Simon-Says-Game" class="source-code-btn">Source Code</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Todo App</h2>
+                <p class="project-description">TaskMaster is a simple, intuitive To-Do app designed to help users organize their daily tasks efficiently</p>
+                <a href="https://todoappnavneet.netlify.app" class="source-code-btn">Live Demo</a>
+                <a href="https://github.com/navneetmaurya-hub/Todo-App-Fullstack" class="source-code-btn">Source Code</a>
+            </div>
+            
+            <div class="project-card">
+                <h2 class="project-title">Wanderlust Travelling Website</h2>
+                <p class="project-description">A full-stack travel listing platform where users can add, edit, and manage travel destinations with images, pricing, and location details. Built using Node.js, Express.js, MongoDB, and EJS.</p>
+                <a href="https://wonderlust-11.onrender.com" class="source-code-btn">Live Demo</a>
+                <a href="https://github.com/navneetmaurya-hub/WonderLust" class="source-code-btn">Source Code</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Todo App</h2>
+                <p class="project-description">Classic Todo App using Javascript.</p>
+                <a href="https://github.com/navneetmaurya-hub/Simon-Says-Game" class="source-code-btn">Source Code</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Wanderlust Travelling Website</h2>
+                <p class="project-description">A full-stack travel listing platform where users can add, edit, and manage travel destinations with images, pricing, and location details. Built using Node.js, Express.js, MongoDB, and EJS.</p>
+                <a href="https://wonderlust-11.onrender.com" class="source-code-btn">Source Code</a>
+            </div>
+
+            <div class="project-card">
+                <h2 class="project-title">Blog App</h2>
+                <p class="project-description">A blogging platform using the MERN stack.</p>
+                <a href="#" class="source-code-btn">Source Code</a>
+            </div>
+
+        </div> 
+    </div>
+    
+    <footer class="fotter">
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/NMaurya17431" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/navneet1234184/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/navneet-maurya-496116297/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <hr class="divider">
+        <div class="copyright">
+            <p>&copy; 2024 Navneet Maurya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

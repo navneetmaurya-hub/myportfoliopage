@@ -1,0 +1,114 @@
+/*
+ * Global Layout: Flexbox Body
+ * यह सुनिश्चित करता है कि footer हमेशा viewport के नीचे रहे,
+ * भले ही content कम हो।
+ */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: #f8f9fa; /* हल्का भूरा background */
+    margin-top: 0; /* Navbar के लिए जगह */
+}
+
+/*
+ * Main Content Area
+ * यह container उपलब्ध जगह को भरने के लिए बढ़ता है, और footer को नीचे धकेलता है।
+ */
+main {
+    flex-grow: 1;
+    padding: 2rem 0;
+}
+
+/*
+ * Navbar Styling
+ * हम fixed position से बचने के लिए Bootstrap के sticky-top का उपयोग करते हैं।
+ */
+.navbar {
+    background-color: #343a40 !important; /* गहरा background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+.navbar-brand, .nav-link {
+    color: white !important;
+}
+.navbar-toggler {
+    border-color: rgba(255, 255, 255, 0.5);
+}
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 20 20' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-width='1' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/*
+ * Middle Section (Ram) Styling
+ * यह सेक्शन modern और साफ़-सुथरा दिखता है।
+ */
+.ram {
+    background-color: white;
+    min-height: 600px; /* ऊँचाई 600px तक बढ़ाई गई */
+    padding: 4rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    /* Flexbox for middle content, stacking on small screens */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+@media (min-width: 768px) {
+    .ram {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.ram h1 {
+    font-size: 2.5rem;
+    color: #333;
+}
+.ram h3 {
+    font-size: 1.5rem;
+    color: #555;
+}
+.ram img {
+    width: 300px; /* इमेज की चौड़ाई 300px तक बढ़ाई गई */
+    height: 300px; /* इमेज की ऊँचाई 300px तक बढ़ाई गई */
+    object-fit: cover; /* यह सुनिश्चित करता है कि image बिना विकृत हुए फिट हो जाए */
+    border-radius: 50%; /* गोल shape */
+    border: 5px solid #007bff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/*
+ * Footer Styling (Matches the user's image)
+ */
+.fotter {
+    background-color: #2c3e50; /* गहरा नीला */
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 2rem;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+.fotter .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+}
+.fotter .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+.fotter .social-icons a:hover {
+    color: #3498db; /* नीला hover effect */
+}
+.fotter .divider {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    width: 50%;
+    margin: 0 auto 1rem;
+}
+.fotter .copyright p {
+    margin: 0;
+    font-size: 0.9rem;
+}

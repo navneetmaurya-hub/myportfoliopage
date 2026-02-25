@@ -1,0 +1,468 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navneet Maurya | Full-Stack Developer Portfolio</title>
+    <!-- We removed the unused Bootstrap CSS link to rely solely on custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* General Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            /* Define colors */
+            --primary-cyan: #00bcd4;
+            --dark-teal: #00838f;
+            --light-cyan-bg: #e0f7fa;
+            --dark-blue-heading: #1a237e;
+            --medium-gray-blue: #546e7a;
+            --header-bg: #263238; /* Dark color for header/footer */
+        }
+
+        body {
+            background: #f4f6f9; 
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh; 
+        }
+
+        /* ---------------------------------- */
+        /* --- 1. FIXED HEADER (NAVBAR) CSS --- */
+        /* ---------------------------------- */
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg); 
+            color: white;
+            padding: 15px 50px;
+            z-index: 1000; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            
+            /* Desktop/Tablet Layout: Space between title and nav */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-title-link {
+            display: flex;
+            align-items: center; 
+            font-weight: bold;
+            font-size: 1.1rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .header-title-link img {
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .header-nav {
+            display: flex; /* Links side-by-side on desktop */
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: var(--primary-cyan);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .header-nav a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        /* FIX: Mobile Menu Toggle Elements */
+        #menu-toggle {
+            display: none; /* Hide the actual checkbox input */
+        }
+        
+        .menu-icon {
+            display: none; /* Hidden by default (desktop view) */
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-cyan);
+            z-index: 1001; /* Ensure the icon is clickable */
+        }
+
+        /* ---------------------------------- */
+        /* --- Mobile Responsiveness (Navbar Fix) --- */
+        /* ---------------------------------- */
+        @media (max-width: 768px) {
+            .fixed-header {
+                padding: 15px 20px; /* Smaller padding on mobile */
+            }
+
+            .menu-icon {
+                display: block; /* Show hamburger icon on mobile */
+            }
+
+            .header-nav {
+                /* Initially hide navigation links on mobile */
+                display: none; 
+                position: absolute;
+                top: 60px; /* Position below the header */
+                left: 0;
+                width: 100%;
+                background: var(--header-bg); 
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 10px 0;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            }
+
+            .header-nav a {
+                margin: 0;
+                padding: 10px 20px;
+                width: 100%;
+                text-align: left;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: white; /* Links white on dark background */
+            }
+            
+            .header-nav a:hover {
+                background-color: var(--dark-teal);
+            }
+
+            /* Show navigation links when the checkbox is checked (hamburger is clicked) */
+            #menu-toggle:checked ~ .header-nav {
+                display: flex;
+            }
+        }
+
+
+        /* ---------------------------------- */
+        /* --- 2. FIXED FOOTER CSS --- */
+        /* ---------------------------------- */
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--dark-teal); 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .fixed-footer .social-icons-footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .fixed-footer .social-icons-footer a:hover {
+            color: var(--light-cyan-bg);
+        }
+        
+        .footer-text {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------------------------------- */
+        /* --- 3. MAIN CONTENT ADJUSTMENT --- */
+        /* ---------------------------------- */
+        .portfolio-section {
+            padding-top: 80px; 
+            padding-bottom: 70px; 
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 20px; 
+            padding-right: 20px;
+            background: linear-gradient(135deg, #e0f7fa, #e8f5e9);
+            min-height: calc(100vh - 120px); /* Adjust height to fill space between fixed header/footer */
+        }
+        
+        /* The rest of your original styles follow */
+        
+        .portfolio-container {
+            max-width: 950px;
+            width: 100%;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            padding: 40px 50px;
+            text-align: center;
+            transition: 0.3s ease;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+            margin-top: 40px; /* Added margin for visual separation */
+            margin-bottom: 40px;
+        }
+
+        .portfolio-container:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Header and Profile Details */
+        .header-content {
+            margin-bottom: 20px;
+        }
+
+        .profile-img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--primary-cyan);
+            margin-bottom: 15px;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            color: var(--dark-blue-heading);
+            margin-bottom: 5px;
+        }
+        
+        h2 {
+            font-size: 1.2rem;
+            color: var(--medium-gray-blue);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        
+        p {
+            font-size: 1rem;
+            color: #444;
+            text-align: justify;
+            margin-bottom: 15px;
+        }
+
+        /* Main Content Sections */
+        .content-section {
+            text-align: left;
+            padding: 20px 0;
+            border-top: 1px solid #eee;
+        }
+
+        .content-section:first-child {
+            border-top: none;
+            padding-top: 0;
+        }
+
+        .content-section h3 {
+            font-size: 1.6rem;
+            color: var(--dark-teal);
+            margin-bottom: 15px;
+            text-align: center;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--light-cyan-bg);
+        }
+
+        /* --- Skills Tags --- */
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .skill {
+            background: var(--light-cyan-bg);
+            color: #006064;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        .skill:hover {
+            background: var(--primary-cyan);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        /* --- Education & Academics --- */
+        .education-item {
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 15px;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        
+        .education-item:last-child {
+            border-bottom: none;
+            margin-bottom: 10px;
+        }
+
+        .education-item strong {
+            display: block;
+            font-size: 1.1rem;
+            color: #263238;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .education-item span {
+            display: block;
+            color: #555;
+            font-size: 0.95rem;
+            line-height: 1.4;
+        }
+
+        /* --- Achievements (Bullet List) --- */
+        .content-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .content-section ul li {
+            margin-bottom: 8px;
+            color: #555;
+            line-height: 1.4;
+            font-size: 0.95rem;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        /* Bullet Point styling */
+        .content-section ul li::before {
+            content: '•';
+            color: var(--primary-cyan);
+            font-weight: bold;
+            display: inline-block;
+            width: 1em;
+            margin-left: -1em;
+            position: absolute;
+            left: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    
+    <header class="fixed-header">
+        <a href="#" class="header-title-link">
+            <img src="myphoto.png" alt="Logo" style="width: 30px; height: 30px;">
+            Navneet Maurya
+        </a>
+        
+        <!-- FIX: Mobile Toggle Checkbox -->
+        <input type="checkbox" id="menu-toggle">
+        <!-- FIX: Mobile Toggle Icon (Linked to checkbox via 'for' attribute) -->
+        <label for="menu-toggle" class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </label>
+        
+        <nav class="header-nav">
+            <a href="index.html">Home</a>
+            <!-- <a href="#about">About</a> -->
+            <a href="h.html">Portfolio</a>
+            <a href="w.html">Experience</a>
+        </nav>
+    </header>
+
+    <section class="portfolio-section">
+        <div class="portfolio-container">
+            <div class="header-content">
+                <img src="myphoto.png" alt="Profile Photo" class="profile-img">
+
+                <h1>Navneet Maurya</h1>
+                <h2>Full-Stack Web Developer | B.Tech CSE (2023–2027)</h2>
+            </div>
+            
+            <div class="content-section" id="about">
+                <h3>About Me</h3>
+                <p>
+                    I am a passionate <b>Full-Stack Web Developer</b> and student at <b>Dr. Ambedkar Institute of Technology for Divyangjan</b>, specializing in building responsive, user-friendly interfaces and robust backend systems.
+                </p>
+                <p>
+                    I have a strong foundation in <b>Data Structures and Algorithms (DSA) with Java</b>, having solved **250+ problems**. My focus is on creating secure, scalable, and efficient web applications using the **MERN-like stack (MongoDB, Express.js, Node.js)**, while constantly exploring new tools to enhance my development workflow.
+                </p>
+            </div>
+
+            <div class="content-section" id="skills">
+                <h3>Skills & Expertise</h3>
+                <div class="skills">
+                    <div class="skill">Node.js</div>
+                    <div class="skill">Express.js</div>
+                    <div class="skill">MongoDB</div>
+                    <div class="skill">JavaScript</div>
+                    <div class="skill">HTML5</div>
+                    <div class="skill">CSS3</div>
+                    <div class="skill">Bootstrap</div>
+                    <div class="skill">Java (DSA)</div>
+                    <div class="skill">C</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Git/GitHub</div>
+                    <div class="skill">RESTful APIs</div>
+                    <div class="skill">Full-Stack Architecture</div>
+                    <div class="skill">Problem-Solving</div>
+                </div>
+            </div>
+            
+            <div class="content-section">
+                <h3>Education & Academics</h3>
+                <div class="education-item">
+                    <strong>B.Tech in Computer Science and Engineering (CSE)</strong>
+                    <span>Dr. Ambedkar Institute of Technology for Divyangjan, Kanpur | 2023 – 2027 | Current CGPA: 7.4</span>
+                </div>
+                <div class="education-item">
+                    <strong>Intermediate (12th)</strong>
+                    <span>Mahatma Gandhi Ismark Inter College, Sultanpur (UP Board) | 2022 | Percentage: 80%</span>
+                </div>
+                <div class="education-item"> 
+                    <strong>High School (10th)</strong>
+                    <span>Mahatma Gandhi Ismark Inter College, Sultanpur (UP Board) | 2020 | Percentage: 86%</span>
+                </div>
+            </div>
+            
+            <div class="content-section" style="padding-top: 0;">
+                <h3>Achievements</h3>
+                <ul>
+                    <li>Achieved **350+ DSA problems solved**, demonstrating strong algorithmic and logical thinking.</li>
+                    <li>Actively participate in coding challenges to improve optimization and clean coding practices.</li>
+                </ul>
+            </div>
+            
+            <div class="content-section" style="border-top: none; padding-top: 0; text-align: center;">
+                <p style="text-align: center; font-style: italic; color: var(--dark-teal); margin-bottom: 0;">
+                    &ldquo;My mission is to leverage my technical skills and creativity to deliver high-performance, scalable, and user-centric web solutions, growing as a Full-Stack Developer who builds innovative, impactful projects.&rdquo;
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fixed-footer">
+        <div class="social-icons-footer">
+            <a href="https://github.com/navneetmaurya-hub" target="_blank" title="GitHub"><i class="fab fa-github"></i></a> 
+            <a href="https://www.linkedin.com/in/navneet-maurya-496116297/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="navneetmaurya2005@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <span class="footer-text">
+            &copy; 2024 Navneet Maurya | Full-Stack Developer Portfolio
+        </span>
+    </footer>
+</body>
+</html>

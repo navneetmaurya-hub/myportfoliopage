@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navneet Maurya | Full-Stack Developer Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #007bff; /* Bootstrap Primary */
+            --dark-color: #343a40;
+            --accent-cyan: #00bcd4; /* Accent color */
+            --dark-blue-heading: #1a237e; 
+            --highlight-pink: #ff3a5e; /* New color for highlighted text */
+            --dark-text-color: #4a4a4a; /* A darker gray for body text on light bg */
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8f9fa; 
+            display: flex; 
+            flex-direction: column; 
+            min-height: 100vh; 
+        }
+
+        /* --- Navbar Styling --- */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed; 
+            width: 100%;
+            top: 0;
+            z-index: 1030; 
+        }
+
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--dark-color) !important; 
+        }
+        
+        .nav-link {
+            color: var(--dark-color) !important; 
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link.active, .nav-link:hover {
+            color: var(--accent-cyan) !important; 
+        }
+        
+        /* --- Main Content Area --- */
+        main.container {
+            flex-grow: 1; 
+            padding-top: 5rem; 
+            padding-bottom: 5rem; 
+            margin-top: 0; 
+        }
+        
+        /* --- Hero Section (.ram) Styling --- */
+        .ram {
+            background: linear-gradient(135deg, #e0f7fa, #e8f5e9); 
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            margin-top: 2rem; 
+        }
+
+        /* Styling for the new large heading */
+        .ram .main-heading {
+            color: var(--dark-color); 
+            font-weight: 700;
+            font-size: 3rem; 
+            line-height: 1.2;
+        }
+        
+        .ram .main-heading .highlight {
+            color: var(--highlight-pink); 
+        }
+
+        .ram .sub-heading {
+            font-size: 1.1rem;
+            color: #546e7a;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        .ram .intro-paragraph {
+            color: var(--dark-text-color);
+            line-height: 1.7;
+        }
+
+        .ram img {
+            max-width: 280px; 
+            height: auto;
+            border-radius: 50%;
+            border: 6px solid var(--accent-cyan); 
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); 
+        }
+
+        .ram .btn-primary {
+            background-color: var(--accent-cyan);
+            border-color: var(--accent-cyan);
+            font-weight: 600;
+            padding: 10px 25px;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .ram .btn-primary:hover {
+            background-color: #00a0b2; 
+            border-color: #00a0b2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- NEW: Blinking Cursor Style --- */
+        .blinking-cursor {
+            color: var(--highlight-pink); 
+            font-weight: 300;
+            font-size: 3rem; 
+            opacity: 1;
+            animation: blink 1s step-end infinite;
+            margin-left: 2px;
+        }
+
+        @keyframes blink {
+            from, to { opacity: 0; }
+            50% { opacity: 1; }
+        }
+
+        /* --- Footer Styling --- */
+        .fotter {
+            background-color: var(--dark-color); 
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            position: fixed; 
+            width: 100%;
+            bottom: 0;
+            z-index: 1020; 
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        
+        .social-icons a {
+            color: white;
+            margin: 0 12px;
+            font-size: 1.6rem; 
+            transition: color 0.3s;
+        }
+
+        .social-icons a:hover {
+            color: var(--accent-cyan);
+        }
+
+        .divider {
+            width: 60px; 
+            border-top: 2px solid var(--accent-cyan);
+            margin: 15px auto;
+        }
+
+        .copyright p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        /* --- Media Queries for Responsiveness --- */
+        @media (max-width: 767.98px) {
+            .ram {
+                padding: 30px !important;
+            }
+            .ram img {
+                margin-top: 20px; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg py-3">
+        <div class="container-fluid">
+            <a class="navbar-brand d-flex align-items-center" href="#">
+                <img src="myphoto.png" alt="Logo" class="rounded-circle me-2" style="width: 40px; height: 40px;">
+                Navneet Maurya
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <div class="navbar-nav ms-auto">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <a class="nav-link" href="portfolio.html">About</a>
+                    <a class="nav-link" href="h.html">Portfolio</a>
+                    <a class="nav-link " href="w.html">Experience</a>
+                    <a class="nav-link " href="ram.html">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="ram d-flex flex-column flex-md-row justify-content-between align-items-center p-5">
+            <div class="p-3 text-center text-md-start">
+                <h3 class="sub-heading mb-2">WELCOME TO MY WORLD</h3>
+
+                <h1 class="main-heading">
+                    Hi, I'm <span class="highlight">Navneet Maurya</span><br>
+                    a <span id="typing-text"></span><span class="blinking-cursor">|</span>
+                </h1>
+                
+                <p class="intro-paragraph mt-4">
+                   My passion lies in crafting scalable and high-performance solutions that solve real-world problems. I don't just write code; I architect systems designed for longevity and impact. I believe technology is the ultimate leverage—and I use my expertise to transform ambitious visions into reliable, elegant, and future-proof digital products.
+                </p>
+
+                <!-- <a href="portfolio.html" class="btn btn-primary mt-3">Read More</a> -->
+            </div>
+            <div class="p-3">
+                <img src="myphoto.png" alt="Navneet's Photo" class="img-fluid">
+            </div>
+        </div>
+    </main>
+
+    <footer class="fotter">
+        <div class="social-icons">
+            <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://x.com/NMaurya17431" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="https://www.instagram.com/navneet1234184/" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/in/navneet-maurya-496116297/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <hr class="divider">
+        <div class="copyright">
+            <p>&copy; 2024 Navneet Maurya. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        const typingTextElement = document.getElementById('typing-text');
+        
+        // वह पाठ जिसे आप टाइप करना चाहते हैं (आपकी पुरानी लाइन से लिया गया और आपकी नई आवश्यकता के अनुसार)
+        const textArray = [
+            "Full-Stack Developer",
+            "Problem-Solver",
+            "Tech Enthusiast",
+            "Creative Coder",
+    
+        ];
+
+        let arrayIndex = 0;
+        let charIndex = 0;
+        const typingSpeed = 100; 
+        const deletingSpeed = 50; 
+        const newTextDelay = 2000; 
+
+        function type() {
+            if (charIndex < textArray[arrayIndex].length) {
+                if(!typingTextElement.classList.contains("typing")) typingTextElement.classList.add("typing");
+                typingTextElement.textContent += textArray[arrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingSpeed);
+            } 
+            else {
+                typingTextElement.classList.remove("typing");
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                if(!typingTextElement.classList.contains("typing")) typingTextElement.classList.add("typing");
+                typingTextElement.textContent = textArray[arrayIndex].substring(0, charIndex-1);
+                charIndex--;
+                setTimeout(erase, deletingSpeed);
+            } 
+            else {
+                typingTextElement.classList.remove("typing");
+                arrayIndex++;
+                if(arrayIndex >= textArray.length) arrayIndex = 0;
+                setTimeout(type, typingSpeed + 1100);
+            }
+        }
+
+        // DOM लोड होने के बाद टाइपिंग शुरू करें
+        document.addEventListener("DOMContentLoaded", function() {
+            if(textArray.length) setTimeout(type, newTextDelay + 250);
+        });
+    </script>
+</body>
+</html>

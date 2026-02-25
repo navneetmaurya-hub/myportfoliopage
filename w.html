@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navneet Maurya | Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
+    <style>
+        /* General Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        :root {
+            /* Define colors */
+            --primary-cyan: #00bcd4;
+            --dark-teal: #00838f;
+            --light-cyan-bg: #e0f7fa;
+            --dark-blue-heading: #1a237e;
+            --medium-gray-blue: #546e7a;
+            --header-bg: #ffffff; /* Changed to White as requested */
+            --light-gray-bg: #f4f6f9; /* Body background */
+            --white-card-bg: #ffffff; /* Card backgrounds */
+            --dark-text: #333333; /* New dark text variable for white header */
+        }
+
+        body {
+            background: var(--light-gray-bg); 
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh; 
+        }
+
+        /* ---------------------------------- */
+        /* --- 1. FIXED HEADER (NAVBAR) CSS --- */
+        /* ---------------------------------- */
+
+        .fixed-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--header-bg); /* White Background */
+            color: var(--dark-text); /* Dark Text for contrast */
+            padding: 15px 40px; 
+            z-index: 1000; 
+            /* Updated shadow for white background */
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); 
+            
+            display: flex;
+            justify-content: space-between; /* Items spread out */
+            align-items: center;
+            font-size: 1.1rem;
+        }
+        
+        .fixed-header span {
+            display: flex;
+            align-items: center; 
+            font-weight: 700;
+            font-size: 1.3rem; 
+            /* Removed flex-grow and negative margin for standard alignment */
+            flex-grow: 0;
+            margin-right: 0; 
+        }
+
+        .header-nav a {
+            color: var(--dark-teal); /* Dark Link Color */
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+        
+        .header-nav a:hover {
+            color: var(--primary-cyan); /* Cyan hover color */
+            text-decoration: underline;
+        }
+        
+        /* NEW: Hamburger Button Styling (Dark color for white header) */
+        .menu-toggle {
+            background: none;
+            border: none;
+            color: var(--dark-text); /* Dark icon color */
+            font-size: 1.5rem;
+            cursor: pointer;
+            display: none; /* Hidden by default on desktop */
+            z-index: 1010; 
+        }
+
+
+        /* ---------------------------------- */
+        /* --- 2. FIXED FOOTER CSS --- */
+        /* ---------------------------------- */
+        .fixed-footer {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: var(--dark-teal); 
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            z-index: 1000;
+        }
+        
+        .fixed-footer .social-icons-footer a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.2rem;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .fixed-footer .social-icons-footer a:hover {
+            color: var(--light-cyan-bg);
+        }
+        
+        .footer-text {
+            display: block;
+            margin-top: 5px;
+            font-size: 0.85rem;
+        }
+
+        /* ---------------------------------- */
+        /* --- Experience Section CSS --- */
+        /* ---------------------------------- */
+        .experience-section {
+            padding-top: 100px; /* Space for fixed header */
+            padding-bottom: 90px; /* Space for fixed footer */
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .experience-section h1 {
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .experience-section p {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 40px;
+            line-height: 1.5;
+        }
+
+        .technologies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive grid */
+            gap: 30px; /* Space between items */
+            justify-items: center; /* Center grid items */
+            margin-top: 30px;
+        }
+
+        .tech-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: var(--white-card-bg);
+            border-radius: 100%; /* Circular background */
+            width: 150px; /* Fixed width for circular item */
+            height: 150px; /* Fixed height for circular item */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+            position: relative; /* For image positioning */
+        }
+
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .tech-item img {
+            max-width: 80px; /* Adjust size of icon */
+            height: auto;
+            margin-bottom: 10px; /* Space between icon and text */
+        }
+        
+        .tech-item .tech-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #333;
+            position: absolute; /* Position text at bottom */
+            bottom: 20px; /* Adjust vertical position */
+            left: 50%;
+            transform: translateX(-50%);
+            white-space: nowrap; /* Prevent text wrap */
+        }
+
+        /* ---------------------------------- */
+        /* --- Responsive Adjustments (Mobile Menu) --- */
+        /* ---------------------------------- */
+        @media (max-width: 768px) {
+            .fixed-header {
+                padding: 15px 20px;
+            }
+            .fixed-header span {
+                font-size: 1rem;
+            }
+            
+            /* Show menu button */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Transform main nav for mobile: slide-down menu */
+            .header-nav {
+                position: fixed;
+                top: 60px; /* Fixed Header के नीचे से शुरू होगा */
+                left: 0;
+                width: 100%; /* पूरी चौड़ाई लेगा */
+                max-height: 0; /* शुरू में बंद रहेगा (ऊपर से) */
+                overflow: hidden; /* कंटेंट को छिपा देगा */
+                background: var(--dark-teal); 
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0 20px; 
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); 
+                /* max-height पर ट्रांज़िशन: ऊपर से नीचे स्लाइड इफ़ेक्ट के लिए */
+                transition: max-height 0.3s ease-in-out; 
+            }
+
+            /* Open state for mobile menu */
+            .header-nav.open {
+                max-height: 300px; /* खुलने पर यह ऊँचाई लेगा */
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+
+            .header-nav a {
+                display: block; /* Make links full width */
+                width: 100%;
+                margin: 0; 
+                padding: 10px 0;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                color: white; 
+                font-size: 1.1rem;
+            }
+            
+            /* Clean up the border on the last link for a better visual stop */
+            .header-nav a:last-child {
+                border-bottom: none;
+            }
+
+            /* General element scaling on tablets/small devices */
+            .experience-section h1 {
+                font-size: 2.5rem;
+            }
+            .experience-section p {
+                font-size: 1rem;
+            }
+            .technologies-grid {
+                grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+                gap: 20px;
+            }
+            .tech-item {
+                width: 120px;
+                height: 120px;
+            }
+            .tech-item img {
+                max-width: 60px;
+            }
+            .tech-item .tech-name {
+                font-size: 0.85rem;
+                bottom: 15px;
+            }
+        }
+
+        /* Desktop styles to ensure mobile styles are overridden when screen is wide */
+        @media (min-width: 769px) {
+            .header-nav {
+                /* Ensure desktop nav is horizontal and visible */
+                display: flex; /* Override mobile's hidden state */
+                flex-direction: row;
+                position: static;
+                width: auto;
+                height: auto;
+                max-height: none; /* Reset max-height for desktop */
+                padding: 0; /* Reset padding for desktop */
+                box-shadow: none;
+                transform: none;
+            }
+            .header-nav a {
+                color: var(--dark-teal); /* Use dark teal on desktop white background */
+                margin-left: 25px;
+                padding: 0;
+                border-bottom: none;
+            }
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* Extra small screen scaling */
+        @media (max-width: 480px) {
+            .tech-item {
+                width: 100px;
+                height: 100px;
+            }
+            .tech-item img {
+                max-width: 50px;
+            }
+            .tech-item .tech-name {
+                font-size: 0.8rem;
+                bottom: 10px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    
+    <header class="fixed-header">
+        <span>
+            <!-- NOTE: Placeholder image URL updated for visibility on a white header, 
+                 please replace 'myphoto.png' with a working URL. -->
+            <img src="myphoto.png" alt="Navneet Maurya Logo" class="rounded-circle me-2" style="width: 30px; height: 30px; margin-right: 10px; border-radius:100%;">
+            Navneet Maurya
+        </span>
+        
+        <nav class="header-nav" id="mobile-menu">
+            <a class="nav-link" href="index.html">Home</a> 
+            <a class="nav-link" href="portfolio.html">About</a>
+            <a class="nav-link" href="h.html">Portfolio</a>
+        </nav>
+
+        <!-- New menu toggle button (hamburger icon) -->
+        <button class="menu-toggle" aria-label="Toggle navigation" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <section class="experience-section">
+        <h1>Experience</h1>
+        <p>I've more than 2 years of experience in below technologies.</p>
+
+        <div class="technologies-grid">
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/w3_html5/w3_html5-icon.svg" alt="HTML5 Icon">
+                <span class="tech-name">HTML</span>
+           </div>
+           <div class="tech-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/d/d5/CSS3_logo_and_wordmark.svg" alt="CSS3 Icon">
+                <span class="tech-name">CSS</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/mongodb/mongodb-icon.svg" alt="MongoDB Icon">
+                <span class="tech-name">MongoDB</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/b/b2/Bootstrap_logo.svg" alt="Bootstrap Icon">
+                <span class="tech-name">Bootstrap</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/java/java-icon.svg" alt="Java Icon">
+                <span class="tech-name">Java</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/javascript/javascript-icon.svg" alt="JavaScript Icon">
+                <span class="tech-name">JavaScript</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/reactjs/reactjs-icon.svg" alt="ReactJS Icon">
+                <span class="tech-name">ReactJS</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/expoio/expoio-icon.svg" alt="Expo Icon">
+                <span class="tech-name">Expo</span>
+            </div>
+            <div class="tech-item">
+                <img src="https://www.vectorlogo.zone/logos/nodejs/nodejs-icon.svg" alt="Node.js Icon">
+                <span class="tech-name">Node.js</span>
+            </div>
+            <div class="tech-item">
+               <img src="https://www.vectorlogo.zone/logos/mysql/mysql-icon.svg" alt="MySQL Icon">
+               <span class="tech-name">MySQL</span>
+            </div>
+        </div>
+    </section>
+
+    <footer class="fixed-footer">
+        <div class="social-icons-footer">
+            <a href="https://github.com/navneetmaurya-hub" target="_blank" title="GitHub"><i class="fab fa-github"></i></a> 
+            <a href="https://www.linkedin.com/in/navneet-maurya-496116297/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="navneetmaurya2005@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+        <span class="footer-text">
+            &copy; 2024 Navneet Maurya | Full-Stack Developer Portfolio
+        </span>
+    </footer>
+
+    <script>
+        // JavaScript to handle the mobile menu toggle
+        document.addEventListener('DOMContentLoaded', () => {
+            const menuToggle = document.getElementById('menu-toggle');
+            const headerNav = document.getElementById('mobile-menu');
+
+            if (menuToggle && headerNav) {
+                menuToggle.addEventListener('click', () => {
+                    // Toggle the 'open' class to slide the menu in and out
+                    headerNav.classList.toggle('open');
+                    
+                    // Toggle hamburger/close icon
+                    const icon = menuToggle.querySelector('i');
+                    if (headerNav.classList.contains('open')) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-times'); // 'fa-times' for close icon
+                    } else {
+                        icon.classList.remove('fa-times');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+
+                // Optional: Close menu when a link is clicked
+                headerNav.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (headerNav.classList.contains('open')) {
+                            headerNav.classList.remove('open');
+                            const icon = menuToggle.querySelector('i');
+                            icon.classList.remove('fa-times');
+                            icon.classList.add('fa-bars');
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+</body>
+</html>
